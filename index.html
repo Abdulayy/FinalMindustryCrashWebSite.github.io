@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home | Mindustry atlas</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="shell">
+<nav id="side" aria-label="Main"></nav>
+<main>
+<div class="grow">
+<section class="hero">
+  <h1 class="mark"><span class="chev" aria-hidden="true"></span>MINDUSTRY<span class="chev r" aria-hidden="true"></span></h1>
+  <p>A fan-made guide to Mindustry's blocks, units and campaign sectors.</p>
+  <div class="row">
+    <a class="btn main" href="play.html">Explore more</a>
+    <a class="btn" href="database.html">Open the database</a>
+  </div>
+</section>
+
+<section class="cards" aria-label="Sections">
+  <a class="card" href="database.html"><h3>Database</h3><p>Blocks, units and resources with sprites and stats. Search and filter like the in-game list.</p><span class="tag">In progress</span></a>
+  <a class="card" href="sectors.html"><h3>Sectors</h3><p>The campaign map and what each sector asks you to build and survive.</p><span class="tag">In progress</span></a>
+  <a class="card" href="play.html"><h3>More</h3><p>Additional reference pages, project notes and useful links.</p><span class="tag">In progress</span></a>
+  <a class="card" href="about.html"><h3>About</h3><p>Why this site exists, what it is made with and who made the game.</p><span class="tag live">Ready</span></a>
+</section>
+
+<section class="panel tipbox" aria-live="polite">
+  <p id="tip"></p>
+  <button class="btn" id="next-tip" type="button">Next tip</button>
+</section>
+<script>
+  const tips=[
+    'Mechanical drills can mine copper, lead, sand, coal and scrap.',
+    'Conveyors carry items from drills to your core. Keep the line short and it will not clog.',
+    'Duo turrets accept copper as ammo, and graphite hits harder.',
+    'Place drills so they cover as many ore tiles as possible. More tiles means faster mining.'
+  ];
+  let i=0;const el=document.getElementById('tip');
+  function show(){el.textContent=tips[i];}
+  document.getElementById('next-tip').addEventListener('click',()=>{i=(i+1)%tips.length;show();});
+  show();
+</script>
+</div>
+</main>
+</div>
+<script src="js/bg.js"></script>
+<script src="js/layout.js"></script>
+</body>
+</html>
